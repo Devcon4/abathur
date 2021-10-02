@@ -1,0 +1,15 @@
+api:
+  debug: false
+  dashboard: false
+global:
+  sendAnonymousUsage: false
+providers:
+  kubernetesCRD:
+    namespaces: []
+ping:
+  entryPoint: web
+entryPoints:
+  web:
+    address: :8000
+  websecure:
+    address: :8443
