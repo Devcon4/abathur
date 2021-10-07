@@ -6,3 +6,4 @@ commonLabels:
 bases:
   - traefik
   - cert-manager
+  - domain

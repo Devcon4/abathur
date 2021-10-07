@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - infra/infra.namespace.yml
   - whoami/whoami.namespace.yml
-
+  - bonelli/bonelli.namespace.yml
 bases:
   - infra
+  - bonelli
+  - domain

@@ -10,3 +10,6 @@ helmCharts:
       installCRDs: true
       prometheus: # Setup prometheus eventually
         enabled: false
+      global:
+        leaderElection:
+          namespace: "infra"

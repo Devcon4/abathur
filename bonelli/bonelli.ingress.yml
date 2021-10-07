@@ -1,0 +1,29 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: bonelli-ingress
+spec:
+  entryPoints:
+    - websecure
+  tls:
+    secretName: devyncyphers-io-cert
+  routes:
+    - match: Host(`devyncyphers.io`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: bonelli
+          namespace: bonelli
+          port: 4290
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: devyncyphers-io-cert
+spec:
+  dnsNames:
+    - devyncyphers.io
+  secretName: devyncyphers-io-cert
+  issuerRef:
+    name: digitalocean-issuer
+    kind: ClusterIssuer

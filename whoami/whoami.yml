@@ -39,6 +39,8 @@ metadata:
 spec:
   entryPoints:
     - websecure
+  tls:
+    secretName: infra/devyncyphers-io-cert
   routes:
     - match: Host(`devyncyphers.io`)
       kind: Rule

@@ -1,6 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: infra
+secretGenerator:
+  - name: do-access-token
+    envs:
+      - do.env
 resources:
-  - ./selfsigned.issuer.yml
-  - ./devyncyphers-io.cert.yml
+  - ./digitalocean.issuer.yml
+generatorOptions:
+  disableNameSuffixHash: true
